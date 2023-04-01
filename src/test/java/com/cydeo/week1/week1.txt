@@ -53,3 +53,12 @@ Which tools we are using to do API TEST ?
                 </dependency>
 
 ----------------------------------------------------------------------
+
+Fruit API
+    - Doc --> https://api.predic8.de/shop/docs#/
+    - Base URL --> https://api.predic8.de
+
+
+BORED API
+     - Doc --> https://www.boredapi.com/documentation
+     - Base URL --> http://www.boredapi.com/api
