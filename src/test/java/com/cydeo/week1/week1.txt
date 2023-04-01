@@ -1,0 +1,46 @@
+
+Which testing framework u used so far ?
+
+
+- Selenium
+    --> TestNG
+    --> Cucumber-JUnit
+- Database
+    --> Junit5
+    --> Cucumber-JUnit
+- API
+    --> Junit5
+    --> Cucumber-JUnit
+    --> Serenity
+
+
+Which tools we are using to do API TEST ?
+
+--> Manual --> POSTMAN
+           --> Is it possbile to use POSTMAN as automation tool ?
+               --> YES
+    Automation --> Rest Assured Library
+
+    Assertions Library
+               --> Junit5
+
+
+
+
+1 - Add Dependency
+        - RestAssured Dependency
+                <!-- This dependency for REST -->
+                <dependency>
+                    <groupId>io.rest-assured</groupId>
+                    <artifactId>rest-assured</artifactId>
+                    <version>5.2.1</version>
+                </dependency>
+        - JUnit5 Dependency
+
+                <!-- This dependency for Junit5 -->
+                <dependency>
+                    <groupId>org.junit.jupiter</groupId>
+                    <artifactId>junit-jupiter</artifactId>
+                    <version>5.9.2</version>
+                </dependency>
+
