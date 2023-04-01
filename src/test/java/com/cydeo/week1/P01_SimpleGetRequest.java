@@ -97,6 +97,8 @@ public class P01_SimpleGetRequest {
         System.out.println("response.path(\"firstname\") = " + response.path("firstname"));
         // NULL
 
+
+        //     *     - Verify First Name is "Steven"
         String first_name = response.path("first_name");
         System.out.println("first_name = " + first_name);
         Assertions.assertEquals("Steven",first_name);
@@ -113,8 +115,10 @@ public class P01_SimpleGetRequest {
         Assertions.assertEquals(HttpStatus.SC_OK,statusCode);
 
 
-        //     *     - Verify First Name is "Steven"
         //     *     - Verify content-Type is application/json
+        String contentType = response.contentType();
+        Assertions.assertEquals("application/json",contentType);
+        Assertions.assertEquals(ContentType.JSON.toString(),contentType);
 
     }
 }
