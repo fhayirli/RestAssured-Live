@@ -16,16 +16,16 @@ Which testing framework u used so far ?
 
 Which tools we are using to do API TEST ?
 
---> Manual --> POSTMAN
+-->    Manual --> POSTMAN
            --> Is it possbile to use POSTMAN as automation tool ?
                --> YES
-    Automation --> Rest Assured Library
+-->    Automation --> Rest Assured Library
 
-    Assertions Library
+ -->   Assertions Library
                --> Junit5
 
 
---- API TESTING STEPS
+--- API TESTING STEPS-----------------------------------
 
     -> Read document to find which endpoint we are gonna use
     -> Manual Testing
@@ -34,7 +34,7 @@ Which tools we are using to do API TEST ?
 
 
 
-
+------- DEPENDENCIES -------------------------------------------------
 1 - Add Dependency
         - RestAssured Dependency
                 <!-- This dependency for REST -->
@@ -52,3 +52,4 @@ Which tools we are using to do API TEST ?
                     <version>5.9.2</version>
                 </dependency>
 
+----------------------------------------------------------------------
