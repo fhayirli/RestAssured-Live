@@ -64,6 +64,21 @@ public class P01_SimpleGetRequest {
     }
 
 
+    /**
+     * 1. Send request to HR url and save the response
+     * 2. GET /employees/100
+     * 3. Store the response in Response Object that comes from get Request
+     * 4. Print out followings
+     *     - First Name
+     *     - Last Name
+     *     - Verify status code is 200
+     *     - Verify First Name is "Steven"
+     *     - Verify content-Type is application/json
+     */
+
+
+
+
 
 
 }
