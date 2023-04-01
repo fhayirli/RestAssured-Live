@@ -1,16 +1,16 @@
 package com.cydeo.week1;
 
+import com.cydeo.utility.HRTestBase;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static io.restassured.RestAssured.get;
-import static io.restassured.RestAssured.given;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static io.restassured.RestAssured.*;
+import static org.junit.jupiter.api.Assertions.*;
 
-public class P02_TestBaseExample {
+public class P02_TestBaseExample extends HRTestBase {
 
 
     /**
@@ -37,7 +37,7 @@ public class P02_TestBaseExample {
     public void simpleGETRequest() {
 
 
-        Response response=get("http://54.144.20.60:1000/ords/hr/regions");
+        Response response=get("/regions");
 
         //     *     - Response
         response.prettyPrint();
@@ -87,8 +87,8 @@ public class P02_TestBaseExample {
     @Test
     public void getOneEmployees() {
 
-        Response response = given().accept(ContentType.JSON) // Hey API I need response in JSON format
-                .when().get("http://54.144.20.60:1000/ords/hr/employees/100");
+        Response response = given().log().uri().accept(ContentType.JSON) // Hey API I need response in JSON format
+                .when().get("/employees/100");
 
         response.prettyPrint();
 
