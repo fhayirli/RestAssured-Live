@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-
+import static org.junit.jupiter.api.Assertions.*;
 import static  io.restassured.RestAssured.*;
 public class P01_SimpleGetRequest {
 
@@ -101,24 +101,24 @@ public class P01_SimpleGetRequest {
         //     *     - Verify First Name is "Steven"
         String first_name = response.path("first_name");
         System.out.println("first_name = " + first_name);
-        Assertions.assertEquals("Steven",first_name);
+        assertEquals("Steven",first_name);
 
 
         //     *     - Last Name
         String last_name = response.path("last_name");
         System.out.println("last_name = " + last_name);
-        Assertions.assertEquals("King",last_name);
+        assertEquals("King",last_name);
 
         //     *     - Verify status code is 200
         int statusCode = response.statusCode();
-        Assertions.assertEquals(200,statusCode);
-        Assertions.assertEquals(HttpStatus.SC_OK,statusCode);
+        assertEquals(200,statusCode);
+        assertEquals(HttpStatus.SC_OK,statusCode);
 
 
         //     *     - Verify content-Type is application/json
         String contentType = response.contentType();
-        Assertions.assertEquals("application/json",contentType);
-        Assertions.assertEquals(ContentType.JSON.toString(),contentType);
+        assertEquals("application/json",contentType);
+        assertEquals(ContentType.JSON.toString(),contentType);
 
     }
 }
