@@ -47,4 +47,16 @@ public class P03_PathParam extends FruitAPITestBase {
 
 
     }
+
+
+    /**
+     *1- Given accept type is Json
+     *2- Path Parameters value is
+     *     - id —> 1
+     *3- When user sends GET request to /customers/{id}/orders/
+     *4- Verify followings
+     *     - Status code should be 200
+     *     - Content Type is application/json; charset=utf-8
+     *
+     */
 }
