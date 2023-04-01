@@ -1,9 +1,15 @@
 package com.cydeo.week1;
 
 import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import org.apache.http.HttpStatus;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+
+import static  io.restassured.RestAssured.*;
 public class P01_SimpleGetRequest {
 
     /**
@@ -30,7 +36,7 @@ public class P01_SimpleGetRequest {
     public void simpleGETRequest() {
 
 
-        Response response=RestAssured.get("http://54.144.20.60:1000/ords/hr/regions");
+        Response response=get("http://54.144.20.60:1000/ords/hr/regions");
 
         //     *     - Response
         response.prettyPrint();
@@ -66,6 +72,7 @@ public class P01_SimpleGetRequest {
 
     /**
      * 1. Send request to HR url and save the response
+     *    - Accept type is application json
      * 2. GET /employees/100
      * 3. Store the response in Response Object that comes from get Request
      * 4. Print out followings
@@ -75,10 +82,39 @@ public class P01_SimpleGetRequest {
      *     - Verify First Name is "Steven"
      *     - Verify content-Type is application/json
      */
+    @DisplayName("GET /employees/100 --> GET Request Practice ")
+    @Test
+    public void getOneEmployees() {
+
+        Response response = given().accept(ContentType.JSON) // Hey API I need response in JSON format
+                .when().get("http://54.144.20.60:1000/ords/hr/employees/100");
+
+        response.prettyPrint();
+
+        // * 4. Print out followings
+        //     *     - First Name
+
+        System.out.println("response.path(\"firstname\") = " + response.path("firstname"));
+        // NULL
+
+        String first_name = response.path("first_name");
+        System.out.println("first_name = " + first_name);
+        Assertions.assertEquals("Steven",first_name);
 
 
+        //     *     - Last Name
+        String last_name = response.path("last_name");
+        System.out.println("last_name = " + last_name);
+        Assertions.assertEquals("King",last_name);
+
+        //     *     - Verify status code is 200
+        int statusCode = response.statusCode();
+        Assertions.assertEquals(200,statusCode);
+        Assertions.assertEquals(HttpStatus.SC_OK,statusCode);
 
 
+        //     *     - Verify First Name is "Steven"
+        //     *     - Verify content-Type is application/json
 
-
+    }
 }
