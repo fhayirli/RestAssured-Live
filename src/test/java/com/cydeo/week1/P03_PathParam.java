@@ -25,12 +25,25 @@ public class P03_PathParam extends FruitAPITestBase {
     @Test
     public void getSingleCategory() {
 
-        Response response = given().accept(ContentType.JSON)
-                .when().get("/shop/categories/Fruits");
+        Response response = given().log().uri().accept(ContentType.JSON)
+                .pathParam("id","Fruits")
+                .when().get("/shop/categories/{id}");
 
+        //     *     - Print response
         response.prettyPrint();
 
 
+        //   *4- Verify followings
+        //     *     - Status code should be 200
+        assertEquals(200,response.statusCode());
+
+        //     *     - Content Type is application/json; charset=utf-8
+        assertEquals("application/json; charset=utf-8",response.contentType());
+
+        //     *     - Name is "Fruits"
+        String name = response.path("name");
+        System.out.println("name = " + name);
+        assertEquals("Fruits",name);
 
 
     }
