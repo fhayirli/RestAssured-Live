@@ -25,6 +25,14 @@ Which tools we are using to do API TEST ?
                --> Junit5
 
 
+--- API TESTING STEPS
+
+    -> Read document to find which endpoint we are gonna use
+    -> Manual Testing
+    -> Automate your test case
+
+
+
 
 
 1 - Add Dependency
