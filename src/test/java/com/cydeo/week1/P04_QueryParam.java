@@ -1,5 +1,10 @@
 package com.cydeo.week1;
 
+import org.junit.jupiter.api.Test;
+
+
+import static io.restassured.RestAssured.*;
+import static org.junit.jupiter.api.Assertions.*;
 public class P04_QueryParam {
 
     /**
@@ -18,4 +23,11 @@ public class P04_QueryParam {
      *     - price is lower than 0.1
 
      */
+
+    @Test
+    public void getActivity() {
+
+
+
+    }
 }
