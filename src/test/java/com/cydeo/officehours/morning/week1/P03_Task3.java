@@ -77,7 +77,7 @@ public class P03_Task3 extends FruitAPITestBase {
     @Test
     public void jsonPath() {
 
-        Response response = given().accept(ContentType.JSON)
+        Response response = given().log().uri().accept(ContentType.JSON)
                 .log().uri().
                 when().get("/shop/categories/").prettyPeek();
 
