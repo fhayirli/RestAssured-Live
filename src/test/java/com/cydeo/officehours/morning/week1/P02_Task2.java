@@ -1,12 +1,14 @@
 package com.cydeo.officehours.morning.week1;
 
+import com.cydeo.utility.BookstoreTestBase;
 import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.*;
 import static org.junit.jupiter.api.Assertions.*;
-public class P02_Task2 {
+public class P02_Task2 extends BookstoreTestBase {
 
     /**
      * Task 2:
@@ -36,6 +38,25 @@ public class P02_Task2 {
                 log().uri()
                 .queryParam("ISBN", "9781449337711").
                 when().get("BookStore/v1/Book").prettyPeek();
+
+        // JSONPATH OBJECT
+        JsonPath jp = response.jsonPath();
+
+        // Status Code
+        assertEquals(200,response.statusCode());
+
+        // VERIFY FOLLOWINGS
+        //     *     Book Information for validation
+
+
+        //     *       | isbn         | 9781449337711
+        assertEquals("9781449337711",jp.getString("isbn"));
+
+        //     *       | title        | Designing Evolvable Web APIs with ASP.NET
+        assertEquals("Designing Evolvable Web APIs with ASP.NET",jp.getString("title"));
+
+        //             | subTitle     | Harnessing the Power of the Web   |
+        assertEquals("Harnessing the Power of the Web",jp.getString("subTitle"));
 
     }
 }
