@@ -71,4 +71,32 @@ public class P03_Task3 extends FruitAPITestBase {
 
         System.out.println("allCategoryName = " + allCategoryName);
     }
+
+
+    @Test
+    public void jsonPath() {
+
+        Response response = given().accept(ContentType.JSON)
+                .log().uri().
+                when().get("/shop/categories/").prettyPeek();
+
+        //     *     - Content-Type is application/json; charset=utf-8
+        assertEquals("application/json; charset=utf-8",response.contentType());
+
+        //     *     - Status Code is 200
+        assertEquals(200,response.statusCode());
+        //     *     - Get me first category name
+
+        //     *     - Get me first category_url
+
+        //     *     - Get me 2nd,3rd category name
+
+        //     *     - Get me last category name
+
+        //     *     - Get me all category name
+
+    }
+
+
+
 }
