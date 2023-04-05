@@ -51,6 +51,7 @@ public class P02_Task2 extends BookstoreTestBase {
 
         //     *       | isbn         | 9781449337711
         assertEquals("9781449337711",jp.getString("isbn"));
+        System.out.println(jp.getString("isbn"));
 
         //     *       | title        | Designing Evolvable Web APIs with ASP.NET
         assertEquals("Designing Evolvable Web APIs with ASP.NET",jp.getString("title"));
