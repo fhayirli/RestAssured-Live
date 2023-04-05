@@ -57,7 +57,7 @@ public class P01_Task1 extends HRTestBase {
         System.out.println("jp.getString(\"links[0].rel\") = " + jp.getString("links[0].rel"));
 
         //     *     - Get me 2,3 rel information
-        System.out.println("jp.getString(\"links[1,2].rel\") = " + jp.getString("links[1,2].rel"));
+        System.out.println("jp.getList(\"links[1,2].rel\") = " + jp.getList("links[1,2].rel"));
 
         //     * 	 - Get me all rel information
         List<String> allRels = jp.getList("links.rel");
