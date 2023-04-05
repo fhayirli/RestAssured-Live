@@ -6,6 +6,8 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
 
+import java.util.Map;
+
 import static io.restassured.RestAssured.*;
 import static org.junit.jupiter.api.Assertions.*;
 public class P02_Task2 extends BookstoreTestBase {
@@ -60,4 +62,6 @@ public class P02_Task2 extends BookstoreTestBase {
         assertEquals("Harnessing the Power of the Web",jp.getString("subTitle"));
 
     }
+
+
 }
