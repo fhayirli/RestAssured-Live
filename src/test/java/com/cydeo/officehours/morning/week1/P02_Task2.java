@@ -1,5 +1,7 @@
 package com.cydeo.officehours.morning.week1;
 
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.*;
@@ -24,7 +26,16 @@ public class P02_Task2 {
      *       | website      | http://chimera.labs.oreilly.com/books/1234000001708/index.html            |
      */
 
+
+
     @Test
     public void getBook() {
+
+
+        Response response = given().accept(ContentType.JSON).
+                log().uri()
+                .queryParam("ISBN", "9781449337711").
+                when().get("BookStore/v1/Book").prettyPeek();
+
     }
 }
