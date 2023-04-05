@@ -10,8 +10,8 @@ TASK 1 --> PATH PARAM
      * Store the response in Response Object that comes from get Request
      * Verify followings
      *     - Print response
-     *     - Content-Type is application/json
      *     - Status Code is 200
+     *     - Content-Type is application/json
      *     - job_id is IT_PROG
      *     - job_title is Programmer
      *     - Get me first rel information
