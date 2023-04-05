@@ -2,6 +2,7 @@ package com.cydeo.officehours.morning.week1;
 
 import com.cydeo.utility.FruitAPITestBase;
 import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
 
@@ -85,15 +86,25 @@ public class P03_Task3 extends FruitAPITestBase {
 
         //     *     - Status Code is 200
         assertEquals(200,response.statusCode());
+
+        // CREATE JSON PATH OBJECT
+        JsonPath jp = response.jsonPath();
+
         //     *     - Get me first category name
+        System.out.println(jp.getString("categories[0].name"));
 
         //     *     - Get me first category_url
+        System.out.println(jp.getString("categories[0].category_url"));
 
         //     *     - Get me 2nd,3rd category name
+        System.out.println(jp.getList("categories[1,2].name"));
 
         //     *     - Get me last category name
+        System.out.println(jp.getString("categories[-1].name"));
 
         //     *     - Get me all category name
+        List<String> allCategoryNames = jp.getList("categories.name");
+        System.out.println(allCategoryNames);
 
     }
 
