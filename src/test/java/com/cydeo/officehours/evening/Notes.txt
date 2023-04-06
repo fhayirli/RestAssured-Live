@@ -1,0 +1,36 @@
+API : Interface between applications - middle man
+
+API Testing: With your Request, you have expected Response from the other application,
+checking if your response from the app is as expected
+
+Two Key elements of API Testing
+Request : fundamental elements of making a request
+       * END Point of API: URI
+       * Path Parameters: part of the URL
+       * Query Parameters : Filtering option of request, everything that comes after "?" in the URL, not considered as part of the URL
+
+Response : How to read and analyze the response
+        we get JSON format,
+        What is JSON : Javascript Object Notation
+        Car = {
+               'model' : 'Honda',
+               'yearMade' : 1995
+               }
+        [] : represents Javascript Array Object - similar to ArrayList in JAVA
+
+Why Oscar likes API Testing ?
+    * Faster
+    * Coverage of the features is High
+    * UI testing focuses on look and feel part of the application mostly
+    * API testing focuses on business layer application
+
+   Applications have different environments: Production (user sees this one) + BackUp Production(mirror), Pre-production(Stage), Testing Env
+
+As a Tester We check couple of things:
+ * most important one : Status Code
+            - 2XX -- OK, created ...
+            - 3XX -- re-directs testing 301, 302
+            - 4XX -- 401, 403, 404
+ * Content-type :
+ * Headers : Date etc.
+ * Body testing : string, path, JsonPath ....
