@@ -34,3 +34,11 @@ As a Tester We check couple of things:
  * Content-type :
  * Headers : Date etc.
  * Body testing : string, path, JsonPath ....
+
+Challenging Task: (totally optional, and little bit hard)
+- create a cucumber framework that can do API and UI test together
+- By using BookStore API Swagger Document, create a user from API
+- and with this user Login from UI side and verify user information
+
+
+
