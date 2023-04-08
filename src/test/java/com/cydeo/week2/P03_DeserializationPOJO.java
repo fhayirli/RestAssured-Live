@@ -1,4 +1,5 @@
 package com.cydeo.week2;
+import com.cydeo.pojo.MRData;
 import com.cydeo.utility.FormulaAPITestBase;
 import io.restassured.path.json.JsonPath;
 import org.junit.jupiter.api.Test;
@@ -27,6 +28,9 @@ public class P03_DeserializationPOJO extends FormulaAPITestBase {
                 then().statusCode(200)
                 .contentType("application/json; charset=utf-8")
                 .extract().jsonPath();
+
+        MRData mrData = jsonPath.getObject("MRData", MRData.class);
+        System.out.println(mrData);
 
     }
 }

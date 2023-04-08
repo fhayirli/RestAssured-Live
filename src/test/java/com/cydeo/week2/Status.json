@@ -163,7 +163,7 @@
     }
 }
 
- 
+
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class MRData{
 
@@ -195,5 +195,5 @@ public class Status{
 
 
 }
-                    
+
 
