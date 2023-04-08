@@ -61,6 +61,9 @@ public class P02_DeserializationJAVA extends CydeoTrainingTestBase {
         System.out.println(teachers.get(teachers.size()-1).get("firstName"));
 
 
+    }
 
+    @Test
+    public void deserializeJAVAJSONPath() {
     }
 }
