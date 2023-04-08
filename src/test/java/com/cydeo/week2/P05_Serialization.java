@@ -1,5 +1,6 @@
 package com.cydeo.week2;
 
+import com.cydeo.pojo.Customer;
 import com.cydeo.utility.FruitAPITestBase;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
@@ -53,6 +54,50 @@ public class P05_Serialization extends FruitAPITestBase {
 
         Assertions.assertEquals(requestMap.get("firstname"),firstname);
         Assertions.assertEquals(requestMap.get("lastname"),lastname);
+
+        // VERIFY DATA BY USING CUSTOMER ID WITH GET REQUEST
+
+        // retrieve customer url
+        // send request to customer url
+        String customerUrl = jsonPath.getString("customer_url");
+        System.out.println("-------- GET REQUEST FOR CREATED CUSTOMER -------");
+        get(customerUrl).prettyPeek();
+
+        // STORE DATA IN JSON PATH AND DO VERIFICATION AGAINST DATA THAT WE POST
+
+        // DATA FROM GET VS REQUEST BODY
+
+
+    }
+
+
+    @Test
+    public  void POSTwithPOJO() {
+
+        Customer customer=new Customer();
+        customer.setFirstName("Steven");
+        customer.setLastName("King");
+
+
+        JsonPath jsonPath = given().log().uri().accept(ContentType.JSON)   // I need data in JSON FORMAT
+                .contentType(ContentType.JSON)  // HEY API I am sending data in JSON FORMAT
+                .body(customer).
+                when().post("/shop/customers/").prettyPeek().
+                then().statusCode(201)
+                .extract().jsonPath();
+
+
+        // API RESPONSE
+        String firstname = jsonPath.getString("firstname");
+        System.out.println(firstname);
+        String lastname = jsonPath.getString("lastname");
+        System.out.println(lastname);
+
+
+        // POJO --> customer
+
+        Assertions.assertEquals(customer.getFirstName(),firstname);
+        Assertions.assertEquals(customer.getLastName(),lastname);
 
         // VERIFY DATA BY USING CUSTOMER ID WITH GET REQUEST
 
