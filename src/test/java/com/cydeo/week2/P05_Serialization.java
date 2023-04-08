@@ -145,7 +145,20 @@ public class P05_Serialization extends FruitAPITestBase {
         Assertions.assertEquals(customer.getLastName(),lastname);
 
 
-
-
     }
+
+    /**
+     *
+     *  Given path param is 662
+     *  When I send delete request to /shop/customers/{id}
+     *  Then I should able to see 200
+     *
+     *
+     *  HOW TO MAKE SURE IT IS DELETED ?
+     *  Send a GET Request /shop/customers/{id}
+     *  Then Status Code should be 404
+     */
+
+
+
 }
