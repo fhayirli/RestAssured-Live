@@ -6,7 +6,7 @@ import org.junit.jupiter.api.BeforeAll;
 import static io.restassured.RestAssured.baseURI;
 import static io.restassured.RestAssured.reset;
 
-public class CydeoTrainingTestBase {
+public abstract class CydeoTrainingTestBase {
 
     @BeforeAll
     public static void init(){
