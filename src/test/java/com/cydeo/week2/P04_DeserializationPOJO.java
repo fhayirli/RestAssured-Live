@@ -5,6 +5,10 @@ import com.cydeo.utility.FruitAPITestBase;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -47,7 +51,6 @@ public class P04_DeserializationPOJO extends FruitAPITestBase {
              jp = get(nextUrl).prettyPeek()
                     .then().statusCode(200)
                     .extract().jsonPath();
-
 
 
              // To update each time current response nextURL infromation
