@@ -1,6 +1,12 @@
 package com.cydeo.week2;
+import com.cydeo.utility.FormulaAPITestBase;
+import io.restassured.path.json.JsonPath;
+import org.junit.jupiter.api.Test;
 
-public class P03_DeserializationPOJO {
+import static io.restassured.RestAssured.*;
+import static org.hamcrest.Matchers.*;
+import static org.junit.jupiter.api.Assertions.*;
+public class P03_DeserializationPOJO extends FormulaAPITestBase {
 
     /*
         - ERGAST API
@@ -12,4 +18,15 @@ public class P03_DeserializationPOJO {
         - And limit is 30
         - And each status has statusId
      */
+
+    @Test
+    public void POJO() {
+
+        JsonPath jsonPath = given().log().uri().
+                when().get("/status.json").prettyPeek().
+                then().statusCode(200)
+                .contentType("application/json; charset=utf-8")
+                .extract().jsonPath();
+
+    }
 }

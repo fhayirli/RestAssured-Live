@@ -1,2 +1,6 @@
 Hamcrest Matchers
 Deserialization vs Serialization
+
+
+
+CREATING POJO FOR /STATUS ENDPOINT
