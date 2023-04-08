@@ -1,6 +1,8 @@
 package com.cydeo.week2;
 
 import com.cydeo.utility.CydeoTrainingTestBase;
+import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
 
@@ -65,5 +67,14 @@ public class P02_DeserializationJAVA extends CydeoTrainingTestBase {
 
     @Test
     public void deserializeJAVAJSONPath() {
+
+        JsonPath jp = given().log().uri().
+                when().get("/teacher/all").
+                then().statusCode(200)
+                .contentType(ContentType.JSON)
+                .extract().jsonPath();
+
+
+
     }
 }
