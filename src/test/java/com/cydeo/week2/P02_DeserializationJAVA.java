@@ -59,7 +59,7 @@ public class P02_DeserializationJAVA extends CydeoTrainingTestBase {
         System.out.println("====== FIRST TEACHER NAME ======");
         System.out.println(firstTeacher.get("firstName"));
 
-        //     * System.out.println("====== LAST TEACHER NAME  ======");
+        System.out.println("====== LAST TEACHER NAME  ======");
         System.out.println(teachers.get(teachers.size()-1).get("firstName"));
 
 
@@ -74,7 +74,63 @@ public class P02_DeserializationJAVA extends CydeoTrainingTestBase {
                 .contentType(ContentType.JSON)
                 .extract().jsonPath();
 
+        System.out.println("====== GET FIRST TEACHER INFO AS MAP  ======");
 
+        Map<String, Object> firstTeacher = jp.getMap("teachers[0]");
+        System.out.println(firstTeacher);
+
+        System.out.println("====== GET FIRST TEACHER NAME  ======");
+        System.out.println(firstTeacher.get("firstName"));
+
+        /*
+        {
+            "teacherId": 3,
+            "firstName": "Tet",
+            "lastName": "DS",
+            "emailAddress": "vfomiuk",
+            "joinDate": "04/09/2022",
+            "birthDate": "05/17/2004",
+            "password": "Dice#096",
+            "phone": "435345345345",
+            "subject": "hgghg",
+            "gender": "Male",
+            "department": "Computer",
+            "salary": 100000,
+            "batch": 1,
+            "section": "456456456"
+            "address : {
+                       "permanentAddress": "45645 "
+
+                        }
+        }
+
+        firstTeacher.get("address") --->  { "permanentAddress": "45645 " }
+
+        Map<String,Object> teacherAddress= firstTeacher.get("address")
+
+        teacherAddress.get("permanentAddress") --> 45645
+
+         */
+
+
+
+
+        System.out.println("====== GET ALL TEACHER INFO  AS LIST OF MAP======");
+        List<Map<String,Object>> teachers = jp.getList("teachers");
+
+        for (Map<String, Object> eachTeacher : teachers) {
+            System.out.println(eachTeacher);
+        }
+
+        System.out.println("====== FIRST TEACHER INFO======");
+        Map<String, Object> teacherFirst = teachers.get(0);
+        System.out.println(teacherFirst);
+
+        System.out.println("====== FIRST TEACHER NAME ======");
+        System.out.println(teacherFirst.get("firstName"));
+
+        System.out.println("====== LAST TEACHER NAME  ======");
+        System.out.println(teachers.get(teachers.size() - 1).get("firstName"));
 
     }
 }
