@@ -3,6 +3,7 @@ package com.cydeo.week2;
 import com.cydeo.utility.FruitAPITestBase;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.LinkedHashMap;
@@ -46,6 +47,25 @@ public class P05_Serialization extends FruitAPITestBase {
         System.out.println(firstname);
         String lastname = jsonPath.getString("lastname");
         System.out.println(lastname);
+
+
+        // MAP --> requestMap
+
+        Assertions.assertEquals(requestMap.get("firstname"),firstname);
+        Assertions.assertEquals(requestMap.get("lastname"),lastname);
+
+        // VERIFY DATA BY USING CUSTOMER ID WITH GET REQUEST
+
+        // retrieve customer url
+        // send request to customer url
+        String customerUrl = jsonPath.getString("customer_url");
+        System.out.println("-------- GET REQUEST FOR CREATED CUSTOMER -------");
+        get(customerUrl).prettyPeek();
+
+        // STORE DATA IN JSON PATH AND DO VERIFICATION AGAINST DATA THAT WE POST
+
+        // DATA FROM GET VS REQUEST BODY
+
 
     }
 }
