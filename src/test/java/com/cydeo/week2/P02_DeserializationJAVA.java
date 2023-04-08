@@ -4,6 +4,7 @@ import com.cydeo.utility.CydeoTrainingTestBase;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
 import java.util.Map;
 
 import static io.restassured.RestAssured.*;
@@ -29,7 +30,7 @@ public class P02_DeserializationJAVA extends CydeoTrainingTestBase {
 
 
         Response response = given().log().uri().
-                when().get("/teacher/all").prettyPeek().
+                when().get("/teacher/all").
                 then().statusCode(200)
                 .extract().response();
 
@@ -43,10 +44,21 @@ public class P02_DeserializationJAVA extends CydeoTrainingTestBase {
 
         Map<String,Object> allTeachers = response.as(Map.class);
         System.out.println("allTeachers = " + allTeachers);
-        //     * System.out.println("====== GET ALL TEACHER INFO  AS LIST OF MAP======");
-        //     * System.out.println("====== FIRST TEACHER INFO======");
-        //     * System.out.println("====== FIRST TEACHER NAME ======");
+        System.out.println("====== GET ALL TEACHER INFO  AS LIST OF MAP======");
+        List<Map<String,Object>> teachers = (List<Map<String, Object>>) allTeachers.get("teachers");
+        for (Map<String, Object> eachTeacher : teachers) {
+            System.out.println(eachTeacher);
+        }
+
+        System.out.println("====== FIRST TEACHER INFO======");
+        Map<String, Object> firstTeacher = teachers.get(0);
+        System.out.println(firstTeacher);
+
+        System.out.println("====== FIRST TEACHER NAME ======");
+        System.out.println(firstTeacher.get("firstName"));
+
         //     * System.out.println("====== LAST TEACHER NAME  ======");
+        System.out.println(teachers.get(teachers.size()-1).get("firstName"));
 
 
 
