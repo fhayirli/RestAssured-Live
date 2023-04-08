@@ -20,5 +20,9 @@ public class P04_DeserializationPOJO extends FruitAPITestBase {
      */
     @Test
     public void deserialization() {
+
+
+
+
     }
 }

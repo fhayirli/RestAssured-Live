@@ -1,0 +1,96 @@
+{
+  "meta": {
+    "count": 12,
+    "limit": 10,
+    "page": 1,
+    "next_url": "/shop/customers/?page=2&limit=10"
+  },
+  "customers": [
+    {
+      "firstname": "Joe",
+      "lastname": "Newman",
+      "customer_url": "/shop/customers/1"
+    },
+    {
+      "firstname": "Michael",
+      "lastname": "Lachappele",
+      "customer_url": "/shop/customers/2"
+    },
+    {
+      "firstname": "David",
+      "lastname": "Winter",
+      "customer_url": "/shop/customers/7"
+    },
+    {
+      "firstname": "Anne",
+      "lastname": "Hine",
+      "customer_url": "/shop/customers/102"
+    },
+    {
+      "firstname": "Alice",
+      "lastname": "Eastman",
+      "customer_url": "/shop/customers/342"
+    },
+    {
+      "firstname": "customerFirstName",
+      "lastname": "customerLastName",
+      "customer_url": "/shop/customers/343"
+    },
+    {
+      "firstname": "customerFirstName",
+      "lastname": "customerLastName",
+      "customer_url": "/shop/customers/345"
+    },
+    {
+      "firstname": "updatedCustomerFirstName",
+      "lastname": "updatedCustomerLastName",
+      "customer_url": "/shop/customers/346"
+    },
+    {
+      "firstname": "customerFirstName",
+      "lastname": "customerLastName",
+      "customer_url": "/shop/customers/347"
+    },
+    {
+      "firstname": "customerFirstName",
+      "lastname": "customerLastName",
+      "customer_url": "/shop/customers/349"
+    }
+  ]
+}
+
+
+CLASSES
+
+public class CustomerData{
+
+  private Meta meta;
+
+  private List<Customer> customers;
+
+
+}
+public class Meta{
+
+  private int count;
+  private int limit;
+  @JsonProperty("next_url")
+  private String nextUrl;
+
+}
+
+
+public class Customer{
+
+  @JsonProperty("firstname")
+  private String firstName;
+
+  @JsonProperty("lastname")
+  private String lastName;
+
+
+}
+
+
+
+
