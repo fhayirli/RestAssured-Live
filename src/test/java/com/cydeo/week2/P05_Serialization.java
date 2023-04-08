@@ -113,4 +113,39 @@ public class P05_Serialization extends FruitAPITestBase {
 
 
     }
+
+
+    @Test
+    public  void PUTwithPOJO() {
+
+        Customer customer=new Customer();
+        customer.setFirstName("PUT Steven");
+        customer.setLastName("King");
+
+
+        JsonPath jsonPath = given().log().uri().accept(ContentType.JSON)   // I need data in JSON FORMAT
+                .contentType(ContentType.JSON) // HEY API I am sending data in JSON FORMAT
+                .pathParam("id",662)
+                .body(customer).
+                when().put("/shop/customers/{id}").prettyPeek().
+                then().statusCode(200)
+                .extract().jsonPath();
+
+
+        // API RESPONSE
+        String firstname = jsonPath.getString("firstname");
+        System.out.println(firstname);
+        String lastname = jsonPath.getString("lastname");
+        System.out.println(lastname);
+
+
+        // POJO --> customer
+
+        Assertions.assertEquals(customer.getFirstName(),firstname);
+        Assertions.assertEquals(customer.getLastName(),lastname);
+
+
+
+
+    }
 }
