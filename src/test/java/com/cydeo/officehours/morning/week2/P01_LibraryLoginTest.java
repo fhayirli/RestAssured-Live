@@ -3,6 +3,9 @@ package com.cydeo.officehours.morning.week2;
 import com.cydeo.utility.LibraryTestBase;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
+import io.restassured.response.ValidatableResponse;
+import io.restassured.specification.RequestSpecification;
 import org.junit.jupiter.api.Test;
 
 
@@ -14,7 +17,9 @@ public class P01_LibraryLoginTest extends LibraryTestBase {
     public void loginTest() {
 
 
-        JsonPath jp = given().log().uri()
+        JsonPath jp =
+
+                given().log().uri()
                 .contentType(ContentType.URLENC) // same with application/x-www-form-urlencoded
                 .formParam("email", "librarian10@library")
                 .formParam("password", "libraryUser").
@@ -30,6 +35,12 @@ public class P01_LibraryLoginTest extends LibraryTestBase {
 
 
         // Send get request to retrieve dashboard_stats
+
+        given().log().uri()
+                .accept(ContentType.JSON)
+                .header("x-library-token",token).
+        when().get("/dashboard_stats").prettyPeek();
+
 
 
     }
