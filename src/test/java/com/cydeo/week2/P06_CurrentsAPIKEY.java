@@ -17,7 +17,6 @@ public class P06_CurrentsAPIKEY {
                 .queryParam("apiKey","a6v39P9aam1Q7YaB-TS5u34p_AdSejb5RJoke0lA8YQIV6Ac").
         when().get("/latest-news").prettyPeek();
 
-
     }
 
     @Test
