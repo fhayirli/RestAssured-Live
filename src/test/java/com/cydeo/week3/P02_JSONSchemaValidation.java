@@ -18,7 +18,7 @@ public class P02_JSONSchemaValidation extends SpartanTestBase {
         when().get("/spartans").prettyPeek().
         then().log().ifValidationFails()
                 .statusCode(200)
-                .body(JsonSchemaValidator.matchesJsonSchemaInClasspath("AllSpartansSchema.json"));
+                .body(JsonSchemaValidator.matchesJsonSchemaInClasspath("schema/AllSpartansSchema.json"));
 
     }
 }
