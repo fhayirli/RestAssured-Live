@@ -36,4 +36,7 @@ public class P02_JSONSchemaValidation extends SpartanTestBase {
                 .body(matchesJsonSchema(new File("src/test/resources/schema/AllSpartansSchema.json")));
 
     }
+
+
+
 }
